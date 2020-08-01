@@ -1,0 +1,120 @@
+﻿@using App.UI.Mvc5.Areas.Management
+@using App.UI.Mvc5.Areas.Management.Models
+
+@model LogsIndexViewModel
+
+<!-- Meta -->
+
+@{
+	/**/
+
+	var dateTimeFormat = User.Culture.DateTimeFormat;
+	var logDatePattern = $"{dateTimeFormat.ShortDatePattern} {dateTimeFormat.LongTimePattern}";
+
+	ViewBag.MenuSection = GetLocalizedString<AreaResources>("Logs");
+}
+
+<!-- Sections -->
+
+@section page_scripts_init{
+	<script src="~/areas/management/scripts/logs.index.js"></script>
+}
+
+<!-- Page Contents -->
+
+<div class="container">
+
+	<div class="py-5 text-center">
+		<h2>@(GetLocalizedString<AreaResources>("Logs"))</h2>
+		<p class="lead">@(GetLocalizedString<AreaResources>("LogsLeadInfo"))</p>
+	</div>
+
+	<div class="row">
+
+		<div class="col">
+
+			<div class="text-right mb-5">
+				<a id="logsRefresh" href="@Url.Action("Index", "Logs")" class="btn btn-outline-dark">
+					<i class="fa fa-refresh mr-2"></i>@(GetLocalizedString<AreaResources>("Refresh"))
+				</a>
+			</div>
+
+			<div class="table-responsive-sm">
+
+				<table class="table table-hover">
+					<thead class="thead-dark">
+						<tr>
+							<th scope="col">@(GetLocalizedString<AreaResources>("Level"))</th>
+							<th scope="col">@(GetLocalizedString<AreaResources>("TimeStamp"))</th>
+							<th scope="col">@(GetLocalizedString<AreaResources>("Message"))</th>
+							<th scope="col"></th>
+						</tr>
+					</thead>
+					<tbody>
+						@if (Model.Entries.Count > 0)
+						{
+							foreach (var entry in Model.Entries)
+							{
+								<tr>
+									<td class="text-nowrap">
+										<i class="@entry.Icon align-middle"></i>
+										<span class="align-middle">@entry.Level</span>
+									</td>
+									<td class="text-nowrap">
+										@entry.TimeStamp.ToTimeZone(User.TimeZone).ToString(logDatePattern)
+									</td>
+									<td>
+										@entry.Message
+									</td>
+									<td>
+										<a href="#log-details-@entry.Id" class="btn btn-link log-details text-lowercase pull-right">@(GetLocalizedString<AreaResources>("Details"))</a>
+										<div id="log-details-@entry.Id" class="mfp-hide popup-wrapper">
+											<div class="popup-wrapper-header">
+												<h4>
+													<i class="@entry.Icon" style="font-size:inherit;"></i>
+													<span>@entry.Level</span>
+												</h4>
+											</div>
+											<div class="popup-wrapper-content">
+												<p class="lead mt-3">@entry.Message</p>
+												<div class="mt-3">
+													<table class="table table-bordered">
+														<tbody>
+															@foreach (var prop in entry.Properties)
+															{
+																<tr>
+																	<td>@prop.Key</td>
+																	<td>@prop.Value</td>
+																</tr>
+															}
+														</tbody>
+													</table>
+												</div>
+												@if (!string.IsNullOrWhiteSpace(entry.Exception))
+												{
+													<p class="mt-3">@Html.Raw(Html.Encode(entry.Exception).Replace(Environment.NewLine, @"<br/>"))</p>
+												}
+											</div>
+										</div>
+									</td>
+								</tr>
+							}
+						}
+						else
+						{
+							<tr class="disabled bg-transparent">
+								<td colspan="4">
+									<p class="text-muted m-5 text-center">@(GetLocalizedString<AreaResources>("EmptyListInfo"))</p>
+								</td>
+							</tr>
+						}
+					</tbody>
+				</table>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</div>

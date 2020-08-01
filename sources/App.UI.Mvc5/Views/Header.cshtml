@@ -1,0 +1,34 @@
+﻿
+<!-- View Contents -->
+
+<header>
+
+	<nav class="navbar navbar-expand-md fixed-top navbar-custom navbar-light navbar-custom bg-light">
+
+		<a class="navbar-brand" href="@Url.GetHomeUrl()">
+			<img class="img-fluid" width="25" src="~/Assets/images/Logo-CR.png" />
+		</a>
+
+		<button class="navbar-toggler custom-toggle-btn" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="@GetLocalizedString("ToggleNavigation")">
+			<span class="navbar-toggler-icon"></span> <!-- Default Theme -->
+			<span class="sr-only"> <!-- Wow Theme -->
+				Toggle navigation
+			</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+
+		<div class="collapse navbar-custom-collapse navbar-collapse" id="navbarCollapse">
+
+			<!--Top Menu-->
+			@Html.Action("TopMenu", "_Menu", new { area = AppAreas.GetAreaName(Area.Root) })
+
+			<!-- User Box -->
+			@Html.Action("Box", "Account", new { area = AppAreas.GetAreaName(Area.Users) })
+
+		</div>
+
+	</nav>
+
+</header>

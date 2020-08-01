@@ -1,0 +1,454 @@
+﻿/* This is the wow layout for Classic Raider */
+/* Copyrights Reserved (R) ESport Academy */
+
+/*
+	This CSS file works as an injection to the standard layout.
+	Injecting this file alone will change the theme completely.
+
+	This allows for potentially customizable themes in the future.
+*/
+
+html {
+	padding-top: 0;
+	overflow-x: hidden;
+}
+
+body {
+	color: #ecd19a;
+}
+
+/* -- HEADER -- */
+.navbar-brand {
+	padding-top: 0;
+}
+
+
+.navbar-custom {
+	border-color: #101010;
+	background-color: transparent !important;
+	background: linear-gradient(rgba(34,34,34,.95),rgba(34,34,34,.75)) !important;
+	box-shadow: 0 2px 10px rgba(0,0,0,.5);
+	padding-top: 0;
+	padding-bottom: 0;
+	padding-left: 15px;
+	padding-right: 15px;
+	border-bottom: 1px solid transparent;
+}
+
+.navbar-toggler-icon {
+	display: none;
+}
+
+.navbar-custom-collapse {
+	margin-left: -15px;
+	margin-right: -15px;
+}
+
+.custom-toggle-btn {
+	background-color: rgba(255,255,255,0) !important;
+	border: none;
+	right: 5px;
+	top: -6px;
+	position: absolute;
+	float: right;
+	margin-right: 15px !important;
+	padding: 9px 10px !important;
+	margin-top: 0px !important;
+	margin-bottom: 8px !important;
+	border-radius: 4px;
+	border-color: transparent !important;
+	outline: none !important;
+}
+
+.custom-toggle-btn .icon-bar {
+	margin: -5px -11px 6px 0;
+	background-color: #ecd19a !important;
+	width: 30px;
+	height: 3px;
+	display: block;
+	border-radius: 1px !important;
+	margin-top: 4px;
+}
+
+
+	.custom-toggle-btn .icon-bar::selection {
+		background: #b2321f !important;
+		color: #ffcb8d !important;
+	}
+
+.custom-toggle-btn .sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	border: 0;
+}
+
+.nav-link {
+	color: #c4ae78 !important;
+	font-family: Helvetica,Arial,sans-serif;
+	font-size: 14px;
+}
+
+	.nav-link:hover {
+		text-shadow: 0 0 15px #99774c, 0 -5px 20px #a17e51, 0 5px 20px #96744a;
+		color: #fff !important;
+	}
+
+	.navbar-light .navbar-nav .active a:after {
+		border: none;
+	}
+
+@media (max-width: 768px) {
+	.nav-item {
+		border-bottom: 1px solid #383838 !important;
+	}
+
+	.navbar-custom-collapse {
+		border-top: 1px solid #242424;
+	}
+}
+
+.cr-custom-flex-auth {
+	padding-top: 3px;
+	padding-bottom: 3px;
+	padding-right: 15px;
+}
+
+.nav-item {
+	/*
+	padding-left: 15px;
+	padding-right: 15px;
+	*/
+	text-align: center;
+}
+
+
+a.text-dark {
+	color: #c4ae78 !important;
+}
+
+	a.text-dark:focus,
+	a.text-dark:hover {
+		color: #fff !important;
+	}
+
+.btn-outline-dark {
+	color: #c4ae78 !important;
+	border-color: #c4ae78 !important;
+}
+
+	.btn-outline-dark:hover {
+		color: #000 !important;
+		background-color: #c4ae78;
+	}
+
+/* Search Box */
+.dropdown-search-box .search-box, .dropdown-search-box .search-box:focus {
+	font-size: 130%
+}
+
+.dg-searchbox {
+	position: relative;
+	font-size: 1.2rem !important;
+	line-height: 1.5em !important;
+	color: #fff;
+	font-weight: 400;
+	font-style: italic;
+	width: 100% !important;
+	margin-bottom: 125px;
+}
+
+	.dg-searchbox .dg-search-bar {
+		-webkit-appearance: textfield;
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+		background: linear-gradient(180deg,rgba(1,1,2,.97),rgba(21,13,6,.97));
+		border: 1px solid #352011;
+		color: #fff;
+		outline: none;
+		padding: 25px 20px 25px 50px;
+		width: 100%;
+		line-height: normal !important;
+		font-size: 14.4px !important;
+		font: inherit;
+		user-select: none;
+		font-kerning: normal;
+		font-feature-settings: "kern" 1,"kern"
+	}
+
+		.dg-searchbox .dg-search-bar::selection {
+			background-color: #f8b700 !important;
+			color: #352011 !important
+		}
+
+		.dg-searchbox .dg-search-bar:active, .dg-searchbox .dg-search-bar:focus {
+			border-color: #674024
+		}
+
+		.dg-searchbox .dg-search-bar::placeholder {
+			color: #f8b700;
+			opacity: 1
+		}
+
+		.dg-searchbox .dg-search-bar:-ms-input-placeholder {
+			color: #f8b700
+		}
+
+		.dg-searchbox .dg-search-bar::-ms-input-placeholder {
+			color: #f8b700
+		}
+
+.SiteNav-searchIcon {
+	left: 20px;
+	margin-top: -12px;
+	position: absolute;
+	top: 50%;
+	z-index: 1
+}
+
+.Icon--searchGold {
+	background-size: 100%;
+	background-image: url(https://worldofwarcraft.com/static/components/Icon/Icon-search-gold.39a918438bf176aa9e86d746beb9c97e.png);
+	background-position: 50%;
+	width: 24px
+}
+
+	.Icon--searchGold:before {
+		content: "";
+		display: block;
+		padding-top: 100%
+	}
+
+#btn-search-container { display: none; }
+
+/* First Section -- Home */
+@media (min-width: 1200px) {
+	.welcome-header-container {
+		background-attachment: fixed !important;
+	}
+}
+
+.welcome-header-container {
+	background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.05)), url(https://classicraider.com/Content/Images/DunMo.jpg);
+	box-shadow: inset 0 -10px 70px rgba(0, 0, 0, 0.75);
+	background-size: cover;
+	background-position: center center;
+	width: calc(100% + 30px);
+	overflow: hidden;
+}
+
+.cr-main-title {
+	padding-top: 55px;
+	font-weight: bold;
+	font-size: 35px;
+}
+
+.cr-main-title-lead {
+	display: none;
+}
+
+.cr-off-title {
+	padding-top: 45px;
+	font-size: 25px;
+}
+
+/* Second Section -- Home */
+@media (min-width: 1200px) {
+	.stats-container {
+		background-attachment: fixed !important;
+	}
+}
+
+.stats-container {
+	background: linear-gradient(rgba(0,0,0,.85),rgba(0,0,0,.25)), url(https://classicraider.com/Content/Images/darkshire.jpg);
+	background-size: cover;
+	background-position: center center;
+	width: calc(100% + 30px);
+	overflow: hidden;
+}
+
+.cr-stats-title { font-size: 4rem; }
+
+/* Template Theme */
+.top-sub-menu {
+	padding-top: 45px !important;
+	background-color: #022 !important;
+	border-bottom: 1px solid #013535 !important;
+	box-shadow: 0 2px 10px rgba(0,0,0,.5) !important;
+}
+
+.Divider {
+	display: block !important;
+	height: 55px;
+	position: relative;
+	margin: -18px -15px;
+}
+
+	.Divider:before {
+		background: url(https://classicraider.com/Content/Images/divider-sprite.png) repeat-x 50% 0;
+		height: 55px;
+		left: 0;
+		margin-right: 82px;
+		right: 50%;
+		content: "";
+		position: absolute;
+		top: 0;
+	}
+
+	.Divider:after {
+		background: url(https://classicraider.com/Content/Images/divider-sprite.png) repeat-x 50% 0;
+		height: 55px;
+		left: 50%;
+		margin-left: 82px;
+		right: 0;
+		content: "";
+		position: absolute;
+		top: 0;
+	}
+
+.Divider-rule {
+	background: url(https://classicraider.com/Content/Images/divider-sprite.png) repeat-x 50% 100%;
+	border: 0;
+	height: 55px;
+	left: 50%;
+	margin: 0 0 0 -82px;
+	position: absolute;
+	top: 5px;
+	width: 164px;
+}
+
+.pattern {
+	background: linear-gradient(rgba(0,0,0,.25),rgba(0,0,0,.55)),url(https://classicraider.com/Content/Images/dark_wall.png);
+}
+
+.card {
+	background-color: transparent;
+}
+
+.popup-wrapper {
+	border: 1px solid #332b0b !important;
+	background-image: url(https://classicraider.com/Content/Images/dark_leather.png) !important;
+	border-radius: 5px !important;
+	padding: 0 !important;
+}
+
+.popup-wrapper-content {
+	padding: 15px;
+}
+
+.popup-wrapper-header {
+	padding: 15px;
+	background-color: #332b0b;
+	border-top-left-radius: 5px !important;
+	border-top-right-radius: 5px !important;
+	border-bottom: 1px solid #443806 !important;
+}
+
+.popup-wrapper-footer {
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	padding: 1rem 1.33rem 1.33rem;
+	border-top: 1px solid #2c2a26;
+}
+
+.button-game {
+	font-size: 14px;
+	display: inline-block;
+	line-height: 54px;
+	padding: 0 3px;
+	position: relative;
+	text-align: center;
+	width: 100%;
+}
+
+.button-game-bg-left {
+	background: url(https://classicraider.com/Content/Images/button-sprite.png) no-repeat 0 -108px;
+	height: 54px;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 51px;
+	z-index: 1;
+}
+
+.button-game-bg-right {
+	background: url(https://classicraider.com/Content/Images/button-sprite.png) no-repeat 0 -162px;
+	height: 54px;
+	right: 0;
+	position: absolute;
+	top: 0;
+	width: 51px;
+	z-index: 1;
+}
+
+.button-game-bg-mid {
+	background: url(https://classicraider.com/Content/Images/button-sprite.png) repeat-x 0 0;
+	color: #f3aa55;
+	display: block;
+	font-family: "Cinzel Decorative","Palatino Light",Times,Times New Roman,Georgia,serif;
+	letter-spacing: 1px;
+	font-weight: 600;
+	padding: 0 42px;
+	position: relative;
+	text-shadow: 0 0 8px #000;
+	transition: color .2s;
+}
+
+	.button-game-bg-mid::after {
+		background: url(https://classicraider.com/Content/Images/button-sprite.png) repeat-x 0 -54px;
+		content: "";
+		height: 54px;
+		left: 0;
+		opacity: 0;
+		position: absolute;
+		right: 0;
+		top: 0;
+		transition: opacity .2s;
+		-webkit-transform: translateZ(0);
+	}
+
+.button-game .button-game-bg-mid > span {
+	position: relative;
+}
+
+
+.mfp-close-btn-in .mfp-close {
+	color: #fff !important;
+}
+
+.form-control-plaintext { color: #fff !important; }
+
+
+/* Table Styles */
+.table {
+	color: #ecd19a !important;
+}
+
+.table-bordered {
+	border: 1px solid #332b0b !important;
+}
+
+.table-bordered td,
+.table-bordered th {
+	border: 1px solid #332b0b !important;
+}
+
+.table td, .table th {
+	border-top: none !important;
+}
+
+.table-hover tbody tr {
+	color: #ecd19a;
+}
+
+	.table-hover tbody tr:hover {
+		color: #fff;
+		background-color: #0c59ee29 !important;
+	}
+
+.btn-custom { color: #ecd19a; }
+.btn-custom:hover { color: #bf0 !important; }

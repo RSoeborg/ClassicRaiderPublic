@@ -1,0 +1,165 @@
+﻿@model HomeViewModel
+
+<!-- Meta -->
+
+@{
+	Model.PageTitle = GetLocalizedString("Home");
+}
+
+<!-- View Sections -->
+
+@section page_styles { }
+@section page_scripts {
+	<script src="~/Assets/javascript/base.searchtable.js"></script>
+	<script src="~/Assets/javascript/base.popup.js"></script>
+
+}
+@section page_scripts_init { }
+
+<!-- View Contents -->
+
+<div class="welcome-header-container">
+	<div class="welcome-header px-3 py-3 pt-md-5 pb-md-4 mx-auto">
+		<div class="text-center">
+			<h1 class="display-3 cr-main-title">@GetLocalizedString("HomeTitle")</h1>
+			<p class="lead cr-main-title-lead">@GetLocalizedString("Welcome")</p>
+			<p>@GetLocalizedString("HomeSubTitle")</p>
+
+			<div class="container">
+
+				<form method="get" action="search" class="form-inline" novalidate>
+					<div class="input-group w-100">
+						<div class="dg-searchbox" style="position: relative;flex: 1 1 auto;width:1%;margin-bottom:0;">
+							<span class="Icon Icon--searchGold SiteNav-searchIcon"></span>
+							@Html.TextBoxFor(model => model.Query, new { @class = "form-control dg-search-bar w-100", placeholder = GetLocalizedString("SearchBarPlaceholder") })
+						</div>
+
+						<div id="btn-search-container" class="input-group-append">
+							<button class="btn btn-outline-secondary" type="button">@GetLocalizedString("Search")</button>
+						</div>
+					</div>
+				</form>
+			</div>
+
+			<p class="mt-0">
+				<a class="btn btn-outline-dark btn-lg mt-4 cr-popup" href="#test" role="button">
+					<i class="fa fa-user mr-3"></i>@GetLocalizedString("AddUpdateCharacter")
+				</a>
+			</p>
+
+			<h1 class="display-4 mt-4 cr-off-title">Recently Searched</h1>
+		</div>
+
+		<div class="character-background-container">
+			<div style="padding:15px;">
+				<table id="TopTable2" border="0" style="background-color:rgba(15, 15, 15, 0.4);" class="w-100 compact hover table">
+					<thead>
+						<tr>
+							<th>@GetLocalizedString("Name")</th>
+							<th>@GetLocalizedString("Level")</th>
+							<th>@GetLocalizedString("Class")</th>
+							@*<th>@GetLocalizedString("Time")</th>*@
+						</tr>
+					</thead>
+				</table>
+			</div>
+		</div>
+
+		@*<p class="lead mt-5 mb-0">
+				Documentation and live changes in our github below.
+			</p>
+			<p class="mt-0">
+				<a class="btn btn-outline-dark btn-lg mt-5" href="https://github.com/akasarto/aspnet-mvc5-starter-template" target="_blank" role="button">
+					<i class="fa fa-github mr-3"></i>Project Code &amp; Documentation
+				</a>
+			</p>*@
+	</div>
+</div>
+
+<div class="Divider" style="display:none;">
+	<hr class="Divider-rule">
+</div>
+
+<div class="row pattern">
+	<section class="contributeSection w-100" id="contributeSection">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-3"></div>
+				<article class="col-sm-6 col-md-6 box features-item thumbnail-100" data-toggle="modal" data-target="#upload-modal">
+					<span id="item-name-caption" class="item-name-caption hidden-xs">
+						Upload your scanned players!
+					</span>
+					<h3>Upload your scanned players!</h3>
+					<p class="features-p">
+						Our initial goal is to make a community of players who runs around with our addon, scan players, and then upload their data! You can help our vision come true! <br>
+						<span class="btn-link-features">Click here to upload your scans!</span>
+					</p>
+				</article>
+				<div class="col-sm-3"></div>
+			</div>
+		</div>
+	</section>
+</div>
+
+<div class="Divider" style="display:none;">
+	<hr class="Divider-rule">
+</div>
+
+
+<div class="stats-container">
+	<div class="container mb-5 mt-5 pt-5">
+
+		<div class="row">
+
+			<div class="col-lg-4 text-center mt-5 mb-5">
+				<i class="fa fa-user fa-5x mb-3"></i>
+				<h2 class="cr-stats-title">384.004</h2>
+				<p><b>Total Players</b> scanned to date</p>
+			</div>
+
+			<div class="col-lg-4 text-center mt-5 mb-5">
+				<i class="fa fa-users fa-5x mb-3"></i>
+				<h2 class="cr-stats-title">25.039</h2>
+				<p><b>Guilds</b> scanned to date</p>
+			</div>
+
+			<div class="col-lg-4 text-center mt-5 mb-5">
+				<i class="fa fa-search-plus fa-5x mb-3"></i>
+				<h2 class="cr-stats-title">320.388</h2>
+				<p><b>Players</b> inspected to date</p>
+			</div>
+
+		</div>
+
+	</div>
+</div>
+
+<div class="Divider" style="display:none;">
+	<hr class="Divider-rule">
+</div>
+
+
+
+<div id="test" class="mfp-hide popup-wrapper" style="width:500px">
+	<div class="popup-wrapper-header">
+		<h4>
+			<i class="fa fa-user-plus" style="font-size:inherit;"></i>
+			<span>@GetLocalizedString("AddUpdateCharacter")</span>
+		</h4>
+	</div>
+	<div class="popup-wrapper-content">
+		<p class="lead">Test Message Lead</p>
+		<div class="mt-3">
+			<p>Text ??</p>
+		</div>
+	</div>
+	<div class="popup-wrapper-footer pattern">
+		<a id="modal-submit" xmlns="http://www.w3.org/1999/xhtml" data-dismiss="modal" class="button-game shop-modal-hide" href="#">
+			<span class="button-game-bg-left"></span>
+			<span class="button-game-bg-mid">
+				<span>Submit</span>
+			</span>
+			<span class="button-game-bg-right"></span>
+		</a>
+	</div>
+</div>

@@ -1,0 +1,52 @@
+﻿@using App.UI.Mvc5.Areas.Search
+@using App.UI.Mvc5.Areas.Search.Models
+@model SearchViewModel
+
+<!-- Meta -->
+
+@{
+	Model.PageTitle = GetLocalizedString<AreaResources>("Title");
+}
+
+<!-- Sections -->
+
+@section page_styles{
+	<style>
+		.table-row {
+			cursor: pointer;
+		}
+	</style>
+}
+
+@section page_scripts{
+	<script type="text/javascript">
+		$(document).ready(function ($) {
+			$(".table-row").click(function () {
+				window.document.location = $(this).data("href");
+			});
+		});
+	</script>
+}
+
+<!-- Page Contents -->
+
+<div class="container mt-5">
+	<h2 class="display-3 text-center">Search Results</h2>
+	<p class="lead">Characters</p>
+	<table class='table table-bordered table-condensed table-striped table-hover'>
+		<tr><th>Name</th><th>Level</th><th>Realm</th><th>Race</th></tr>
+		@{
+			foreach (var player in Model.Players.OrderBy(p => -p.Level))
+			{
+				<tr class="table-row" data-href="http://tutorialsplane.com">
+					<td>@player.Name</td>
+					<td>@player.Level</td>
+					<td>No Mockup</td>
+					<td>@player.Race</td>
+				</tr>
+
+			}
+		}
+	</table>
+</div>
+
